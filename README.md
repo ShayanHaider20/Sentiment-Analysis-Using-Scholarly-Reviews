@@ -17,45 +17,14 @@ The following Python libraries are used in this project:
 ### 1. Data Preprocessing
 The data is extracted from the ICLR 2017 review dataset. Each review is analyzed to extract the sentiment based on its rating and confidence.
 
-```python
-def read_reviews(folder_path):
-    reviews = []
-    positive = ['good', 'strong', 'accept', 'strongly accept', 'good paper', 'above']
-    borderline = ['marginally', 'probably', 'maybe', 'neutral']
-    for file_name in os.listdir(folder_path):
-        if file_name.endswith('.json'):
-            file_path = os.path.join(folder_path, file_name)
-            with open(file_path, encoding="utf8") as f:
-                data = json.load(f)
-            paper_id = data['id']
-            for review in data['reviews']:
-                review_text = review['review']
-                rating = review['rating']
-                confidence = review['confidence']
-                if any(pos in rating.lower() for pos in positive):
-                    preliminary_decision = 1
-                elif any(border in rating.lower() for border in borderline):
-                    preliminary_decision = 2
-                else:
-                    preliminary_decision = 0
-                reviews.append({
-                    'paper_id': paper_id,
-                    'text': review_text,
-                    'rating': rating,
-                    'confidence': confidence,
-                    'preliminary_decision': preliminary_decision
-                })
-    return reviews
-
-
-```
 
 ### 2. Text Tokenization
 The reviews are tokenized and padded to ensure consistent input size for the model.
 
-tokenizer = Tokenizer(num_words=10000)
-texts = df['text'].tolist()
-tokenizer.fit_on_texts(texts)
-sequences = tokenizer.texts_to_sequences(texts)
-padded_sequences = pad_sequences(sequences, maxlen=300)
+### 3. Model Training
+MILAM Model with Attention
+A deep learning model based on LSTM with Attention mechanism is built using Keras.
+
+SVM Model with TF-IDF Features
+Additionally, a traditional machine learning model using Support Vector Machines (SVM) with unigrams and bigrams extracted via TF-IDF vectorizer is used.
 
