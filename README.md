@@ -1,6 +1,6 @@
-<<<<<<< HEAD
-# Sentiment-Analysis-Using-Scholarly-Reviews
-=======
-# Sentiment-Scholar
-Sentiment analysis to the relatively unexplored domain of scholarly paper peer reviews
->>>>>>> 9ce84a2 (Sentiment Analysis using Scholarly Reviews V1)
+2. Text Tokenization
+The reviews are tokenized and padded to ensure consistent input size for the model.
+
+python
+Copy
+Edit
