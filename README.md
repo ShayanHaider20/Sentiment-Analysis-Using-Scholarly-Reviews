@@ -21,7 +21,7 @@ The data is extracted from the ICLR 2017 review dataset. Each review is analyzed
 ### 2. Text Tokenization
 The reviews are tokenized and padded to ensure consistent input size for the model.
 
-### 3. Model Training
+# 3. Model Training
 MILAM Model with Attention
 A deep learning model based on LSTM with Attention mechanism is built using Keras.
 
