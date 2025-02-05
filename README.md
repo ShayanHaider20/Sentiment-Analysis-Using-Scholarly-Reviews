@@ -50,7 +50,7 @@ def read_reviews(folder_path):
 
 ```
 
-##2. Text Tokenization
+### 2. Text Tokenization
 The reviews are tokenized and padded to ensure consistent input size for the model.
 
 tokenizer = Tokenizer(num_words=10000)
