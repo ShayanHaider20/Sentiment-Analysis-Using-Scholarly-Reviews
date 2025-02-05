@@ -46,3 +46,12 @@ def read_reviews(folder_path):
                     'preliminary_decision': preliminary_decision
                 })
     return reviews
+
+
+
+tokenizer = Tokenizer(num_words=10000)
+texts = df['text'].tolist()
+tokenizer.fit_on_texts(texts)
+sequences = tokenizer.texts_to_sequences(texts)
+padded_sequences = pad_sequences(sequences, maxlen=300)
+
